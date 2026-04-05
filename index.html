@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная Канбан-доска</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Скрипт подключаем с defer, чтобы он загрузился после HTML -->
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Управление проектами (Kanban)</h1>
+    </header>
+
+    <main>
+        <!-- Панель управления (Форма) -->
+        <section class="controls">
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Название задачи..." autocomplete="off">
+                
+                <select id="task-status">
+                    <option value="todo">К выполнению</option>
+                    <option value="in-progress">В процессе</option>
+                    <option value="done">Готово</option>
+                </select>
+
+                <input type="date" id="task-deadline">
+                
+                <button type="submit">Добавить</button>
+            </form>
+            <!-- Блок для вывода предупреждений -->
+            <div id="error-message" class="error-hidden">Название задачи должно содержать минимум 3 символа!</div>
+        </section>
+
+        <!-- Игровая доска -->
+        <section class="board">
+            <div class="column" id="col-todo" data-status="todo">
+                <h2>К выполнению</h2>
+                <div class="column-content"></div>
+            </div>
+
+            <div class="column" id="col-in-progress" data-status="in-progress">
+                <h2>В процессе</h2>
+                <div class="column-content"></div>
+            </div>
+
+            <div class="column" id="col-done" data-status="done">
+                <h2>Готово</h2>
+                <div class="column-content"></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
